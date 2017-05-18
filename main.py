@@ -1,29 +1,22 @@
-import pygame
-from pygame.locals import *
-import os
-import sys
+from tkinter import *
 
-pygame.init()
-clock = pygame.time.Clock()
+root = Tk()
+
+displayFrame = Frame(root, width=400, height=400)
+optionsFrame = Frame(root, width=400, height=100)
+
+typeLabel = Label(optionsFrame, text='Type:')
+typeTextbox = Text(optionsFrame, width=20, height=1)
+zoomLabel = Label(optionsFrame, text='Zoom:')
+zoomTextbox = Text(optionsFrame, width=20, height=1)
+
+typeLabel.grid(row=0, column=0)
+typeTextbox.grid(row=0, column=1)
+zoomLabel.grid(row=0, column=2)
+zoomTextbox.grid(row=0, column=3)
+
+displayFrame.pack()
+optionsFrame.pack(side=BOTTOM)
 
 
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
-
-screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-
-pygame.display.set_caption('FRACTALIS')
-
-done = False
-
-while not done:
-    clock.tick()
-
-    for event in pygame.event.get():
-        if event.type == QUIT:
-            done = True
-
-    pygame.display.update()
-
-pygame.quit()
-sys.exit()
+root.mainloop()
